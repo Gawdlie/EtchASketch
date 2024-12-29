@@ -1,4 +1,4 @@
-let userInput;
+let userInput = 2;
 
 const gridContainer = document.createElement("div");
 const gridButtonContainer = document.createElement("div");
@@ -20,34 +20,62 @@ gridButtonContainer.appendChild(gridButton);
 
 gridButtonContainer.style.cssText = "display: flex; justify-content: center; border: solid"
 
-gridButton.style.cssText = "padding: 20px; border-radius: 20px;"
+gridButton.style.cssText = "padding: 10px; border-radius: 20px;"
 gridButton.textContent = "Click Me!";
 
 // default grid
 for(let i = 0; i < 16; i++) {
     const rowContainer = document.createElement("div");
     document.body.appendChild(rowContainer);
+    gridContainer.appendChild(rowContainer);
+    gridDivContainer.appendChild(rowContainer);
     for(let j = 0; j < 16; j++) {
         const newDiv = document.createElement("div");
         rowContainer.appendChild(newDiv);
-        newDiv.style.cssText = "border: solid; padding: 18px;";
+        newDiv.style.cssText = "border: solid; padding: 8px;";
         
         newDiv.addEventListener("mouseover", () => {
             newDiv.style.backgroundColor = "red";
         });
+
+        newDiv.addEventListener("mouseout", () => {
+            newDiv.style.backgroundColor = "green";
+        });
     }
     rowContainer.style.cssText = "display: flex; justify-content: center; align-items: center;";
-    gridContainer.appendChild(rowContainer);
 }
 
 gridButton.addEventListener("click", () => {
-    userInput = prompt("Please choose number of divs for grid: ");
-    createGrid(userInput);
+    userInput = prompt("Please choose number of divs for grid (maximum 100): ");
+    
+    while(userInput > 100 || userInput < 2) {
+        userInput = prompt("Please choose a valid number! ");
+    }
+
+    createGrid(parseInt(userInput));
 });
 
 function createGrid(userInput) {
-    // empty out gridDivContainer
-    while(gridDivContainer.firstChild) {
-        gridDivContainer.removeChild(firstChild);
+    gridDivContainer.innerHTML = '';
+
+    for(let i = 0; i < userInput; i++) {
+        const rowContainer = document.createElement("div");
+        document.body.appendChild(rowContainer);
+        gridContainer.appendChild(rowContainer);
+        gridDivContainer.appendChild(rowContainer);
+        for(let j = 0; j < userInput; j++) {
+            const newDiv = document.createElement("div");
+            rowContainer.appendChild(newDiv);
+            newDiv.style.cssText = "border: solid; padding: 8px;";
+            
+            newDiv.addEventListener("mouseover", () => {
+                newDiv.style.backgroundColor = "red";
+            });
+
+            newDiv.addEventListener("mouseout", () => {
+                newDiv.style.backgroundColor = "green";
+            });
+        }
+        rowContainer.style.cssText = "display: flex; justify-content: center; align-items: center;";
     }
 }
