@@ -17,9 +17,10 @@ gridButtonContainer.appendChild(gridButton);
 
 gridButtonContainer.style.cssText = "display: flex; justify-content: center; border: solid"
 
-gridButton.style.cssText = "padding: 20px;"
+gridButton.style.cssText = "padding: 20px; border-radius: 20px;"
 gridButton.textContent = "Click Me!";
 
+// default grid
 for(let i = 0; i < 16; i++) {
     const rowContainer = document.createElement("div");
     document.body.appendChild(rowContainer);
@@ -34,4 +35,14 @@ for(let i = 0; i < 16; i++) {
     }
     rowContainer.style.cssText = "display: flex; justify-content: center; align-items: center;";
     gridContainer.appendChild(rowContainer);
+}
+
+gridButton.addEventListener("click", () => {
+    userInput = prompt("Please choose number of divs for grid: ");
+    createGrid(userInput);
+
+});
+
+function createGrid(userInput) {
+    
 }
