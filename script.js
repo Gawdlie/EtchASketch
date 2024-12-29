@@ -20,7 +20,7 @@ gridButtonContainer.appendChild(gridButton);
 
 gridButtonContainer.style.cssText = "display: flex; justify-content: center; padding: 10px;";
 
-gridButton.style.cssText = "padding: 10px; border-radius: 20px;"
+gridButton.style.cssText = "padding: 10px; border-radius: 20px;";
 gridButton.textContent = "Click Me!";
 
 // default grid
@@ -57,8 +57,6 @@ gridButton.addEventListener("click", () => {
 
 function createGrid(userInput) {
     gridDivContainer.innerHTML = '';
-
-    
 
     for(let i = 0; i < userInput; i++) {
         const rowContainer = document.createElement("div");
