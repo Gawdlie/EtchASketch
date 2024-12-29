@@ -11,14 +11,14 @@ document.body.appendChild(gridButton);
 document.body.appendChild(gridDivContainer);
 document.body.style.cssText = "margin: 0px; padding: 0px;";
 
-gridContainer.style.cssText = "padding: 10px; border: solid";
+gridContainer.style.cssText = "padding: 10px;";
 gridContainer.appendChild(gridButtonContainer);
 gridContainer.appendChild(gridButton);
 gridContainer.appendChild(gridDivContainer);
 
 gridButtonContainer.appendChild(gridButton);
 
-gridButtonContainer.style.cssText = "display: flex; justify-content: center; border: solid"
+gridButtonContainer.style.cssText = "display: flex; justify-content: center; padding: 10px;";
 
 gridButton.style.cssText = "padding: 10px; border-radius: 20px;"
 gridButton.textContent = "Click Me!";
@@ -32,7 +32,7 @@ for(let i = 0; i < 16; i++) {
     for(let j = 0; j < 16; j++) {
         const newDiv = document.createElement("div");
         rowContainer.appendChild(newDiv);
-        newDiv.style.cssText = "border: solid; padding: 8px;";
+        newDiv.style.cssText = "border: solid; padding: 16px;";
         
         newDiv.addEventListener("mouseover", () => {
             newDiv.style.backgroundColor = "red";
@@ -58,6 +58,8 @@ gridButton.addEventListener("click", () => {
 function createGrid(userInput) {
     gridDivContainer.innerHTML = '';
 
+    
+
     for(let i = 0; i < userInput; i++) {
         const rowContainer = document.createElement("div");
         document.body.appendChild(rowContainer);
@@ -66,7 +68,7 @@ function createGrid(userInput) {
         for(let j = 0; j < userInput; j++) {
             const newDiv = document.createElement("div");
             rowContainer.appendChild(newDiv);
-            newDiv.style.cssText = "border: solid; padding: 8px;";
+            newDiv.style.cssText = "border: solid; padding: 26px;";
             
             newDiv.addEventListener("mouseover", () => {
                 newDiv.style.backgroundColor = "red";
