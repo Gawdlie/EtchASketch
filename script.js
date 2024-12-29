@@ -1,16 +1,37 @@
-const gridContainer = document.createElement("div");
+let userInput;
 
+const gridContainer = document.createElement("div");
+const gridButtonContainer = document.createElement("div");
+const gridButton = document.createElement("button");
+
+document.body.appendChild(gridButtonContainer);
+document.body.appendChild(gridButton);
 document.body.appendChild(gridContainer);
+document.body.style.cssText = "margin: 0px; padding: 0px;";
+
+gridContainer.style.cssText = "padding: 10px; border: solid";
+gridContainer.appendChild(gridButtonContainer);
+gridContainer.appendChild(gridButton);
+
+gridButtonContainer.appendChild(gridButton);
+
+gridButtonContainer.style.cssText = "display: flex; justify-content: center; border: solid"
+
+gridButton.style.cssText = "padding: 20px;"
+gridButton.textContent = "Click Me!";
 
 for(let i = 0; i < 16; i++) {
     const rowContainer = document.createElement("div");
     document.body.appendChild(rowContainer);
-    rowContainer.textContent = "0";
     for(let j = 0; j < 16; j++) {
         const newDiv = document.createElement("div");
         rowContainer.appendChild(newDiv);
-        newDiv.textContent = "0";
+        newDiv.style.cssText = "border: solid; padding: 18px;";
+        
+        newDiv.addEventListener("mouseover", () => {
+            newDiv.style.backgroundColor = "red";
+        });
     }
-    rowContainer.style.cssText = "display: flex; justify-content: center; border: solid;";
+    rowContainer.style.cssText = "display: flex; justify-content: center; align-items: center;";
+    gridContainer.appendChild(rowContainer);
 }
-gridContainer.style.cssText = "display: flex; margin: 0px; padding: 0px;";
