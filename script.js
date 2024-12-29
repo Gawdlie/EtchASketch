@@ -35,11 +35,11 @@ for(let i = 0; i < 16; i++) {
         newDiv.style.cssText = "border: solid; padding: 16px;";
         
         newDiv.addEventListener("mouseover", () => {
-            newDiv.style.backgroundColor = "red";
+            newDiv.style.backgroundColor = generateRandomColor();
         });
 
         newDiv.addEventListener("mouseout", () => {
-            newDiv.style.backgroundColor = "green";
+            newDiv.style.backgroundColor = generateRandomColor();
         });
     }
     rowContainer.style.cssText = "display: flex; justify-content: center; align-items: center;";
@@ -55,6 +55,16 @@ gridButton.addEventListener("click", () => {
     createGrid(parseInt(userInput));
 });
 
+function generateRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    const randomColor = "rgb(" + r + ", " + g + ", " + b + ")";
+
+    return randomColor;
+}
+
 function createGrid(userInput) {
     gridDivContainer.innerHTML = '';
 
@@ -69,11 +79,11 @@ function createGrid(userInput) {
             newDiv.style.cssText = "border: solid; padding: 26px;";
             
             newDiv.addEventListener("mouseover", () => {
-                newDiv.style.backgroundColor = "red";
+                newDiv.style.backgroundColor = generateRandomColor();
             });
 
             newDiv.addEventListener("mouseout", () => {
-                newDiv.style.backgroundColor = "green";
+                newDiv.style.backgroundColor = generateRandomColor();
             });
         }
         rowContainer.style.cssText = "display: flex; justify-content: center; align-items: center;";
